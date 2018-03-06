@@ -6,3 +6,4 @@ export const SearchResultActions = Actions;
 export { api as SearchResultApi } from './api/';
 export const SearchResultReducer = reducer;
 export { ConnectedSearchResult as SearchResult } from './SearchResult';
+export { RecordColumns } from './api';

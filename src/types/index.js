@@ -63,9 +63,14 @@ export const MPTravelDecisionCodes = {
 
 export const Pages = {
   recordHomePage: '/',
+  recordViewPage: '/record/',
+  recordViewPageWitdItemIDAndType: function (itemID, itemType) {
+    return `${this.recordViewPage}${itemType}/${itemID}`;
+  }
 };
 
 export const Record = {
+  BLOCK_NO: 'blockNo',
   OWNER: 'owner',
   COMPANY: 'company',
   RECORD_TYPE: 'recordType',

@@ -3,10 +3,12 @@ import * as types from './';
 
 import { FluidApi, FluidTable } from 'fluid-commons';
 
+import { Pages } from '../../../types/';
 import { TABLE_NAME } from '../constants';
 import { AjaxStatusActions as ajaxStatusActions } from '../../AjaxStatus/';
 import { HeaderActions as headerActions } from '../../Headers/';
 import { NotificationActions as notificationActions } from '../../Notification/';
+import { push } from 'react-router-redux';
 
 export function setResults(results) {
   return {
@@ -17,12 +19,12 @@ export function setResults(results) {
 
 export function loadResults() {
   return (dispatch, state) => {
-    const { search } = state();
+    const { search: { type, text } } = state();
     dispatch(ajaxStatusActions.beginAjaxCall());
-    FluidApi.execute('findRecordsByOwner', {
-      owner: search
-    }).then(({ findRecordsByOwner }) => {
-      const result = findRecordsByOwner();
+    FluidApi.execute('findRecords', {
+      type, text
+    }).then(({ findRecords }) => {
+      const result = findRecords();
       dispatch(setResults(result.values ? result.values() : []));
       dispatch(ajaxStatusActions.ajaxCallSuccess());
     }).catch(error => {
@@ -56,3 +58,9 @@ export function createHeaders() {
     dispatch(headerActions.setHeaderControls(headers));
   };
 }
+
+export function openView(itemType, itemID) {
+  return dispatch => {
+    dispatch(push(Pages.recordViewPageWitdItemIDAndType(itemID, itemType)));
+  };
+};

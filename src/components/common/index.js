@@ -10,7 +10,6 @@ export { Selector } from './Selector';
 export { TextInput } from './TextInput';
 export { CollapseHeader } from './CollapseHeader';
 export { FormGroup } from './FormGroup';
-export { Header } from './header/';
 export { TextArea } from './TextArea';
 export { ListForm } from './ListForm';
 export { ResponsiveButton } from './ResponsiveButton';

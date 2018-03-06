@@ -1,6 +1,7 @@
 import * as labels from '../../../labels/';
 
 import { Record } from '../../../types/';
+import { toReadableText } from '../../../utils/';
 
 export default [{
   field: Record.OWNER,
@@ -8,24 +9,27 @@ export default [{
 }, {
   field: Record.COMPANY,
   label: labels.LABEL_COMPANY,
-  filter: true,
-  columnFilterClass: 'form-control'
+  filter: true
 },
 {
   field: Record.RECORD_TYPE,
   label: labels.LABEL_RECORD_TYPE,
-  filter: true,
-  columnFilterClass: 'form-control'
+  filter: true
 },
 {
   field: Record.ITEM_TYPE,
   label: labels.LABEL_ITEM_TYPE,
-  filter: true,
-  columnFilterClass: 'form-control'
+  filter: true
+},
+{
+  field: Record.ITEM,
+  label: labels.LABEL_ITEM,
+  transform: toReadableText
 },
 {
   field: Record.DESCRIPTION,
-  label: labels.LABEL_DESCRIPTION
+  label: labels.LABEL_DESCRIPTION,
+  transform: toReadableText
 },
 {
   field: Record.DATE_CREATED,

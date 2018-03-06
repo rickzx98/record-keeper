@@ -51,6 +51,10 @@ export const LABEL_CLEAR = 'Clear';
 export const LABEL_EDITED = 'Edited';
 export const LABEL_MF_NUMBER = 'MF number';
 export const LABEL_CLEAR_FILTER = 'Clear filter';
+export const LABEL_ITEM = 'Item';
+export const LABEL_RECORD = 'Record';
+export const LABEL_ITEM_DETAIL = 'Item detail';
+export const LABEL_ITEM_HISTORY = 'Item history';
 // validation
 export const LABEL_VALIDATION_POLICY_NUMBER_REQUIRED = 'Policy number is required';
 export const LABEL_VALIDATION_CUSTOMER_NUMBER_REQUIRED = 'Customer number is required';

@@ -4,4 +4,5 @@ export { requireMessage } from './requireMessage';
 export { formatDateSmall, dateTransformer, formatDateSmallWithTime } from './DateFormat';
 export { readOnlyWrapper } from './readOnly';
 export { textNotEmpty } from './notEmpty';
-export { mpNotesCreatedDateDesc } from './MPNotesDate';
+export { sortRecordDateDesc } from './sortRecordDate';
+export { toReadableText } from './JsonFormat';

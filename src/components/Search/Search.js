@@ -13,7 +13,7 @@ class Search extends React.Component {
     this.thisOnSubmit = this.onSubmit.bind(this);
   }
   onChange(event) {
-    this.props.actions.setSearchValue(event.target.value);
+    this.props.actions.setSearchField(event.target.name, event.target.value);
   }
   onSubmit(event) {
     event.preventDefault();
@@ -43,7 +43,7 @@ function mapDispatchToActions(dispatch) {
 
 
 Search.propTypes = {
-  search: PropTypes.string,
+  search: PropTypes.object,
   ajax: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };

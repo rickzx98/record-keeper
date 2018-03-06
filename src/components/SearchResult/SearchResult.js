@@ -14,7 +14,9 @@ class SearchResult extends React.Component {
   componentWillMount() {
     this.props.actions.createHeaders();
   }
-  onSelect() { }
+  onSelect({ item, itemType }) {
+    this.props.actions.openView(itemType, JSON.parse(item).itemID);
+  }
   render() {
     return (<SearchResultBody onSelect={this.thisOnSelect} records={this.props.searchResult} />);
   }
