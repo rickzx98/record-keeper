@@ -15,7 +15,12 @@ export const FormGroup = ({ label, required, name, children, message, invalid, c
 FormGroup.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired,
   required: PropTypes.bool,
   message: PropTypes.string,
   invalid: PropTypes.bool,

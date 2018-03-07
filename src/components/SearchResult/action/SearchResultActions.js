@@ -46,14 +46,22 @@ export function clearFilter() {
 }
 
 
-export function createHeaders() {
+export function createHeaders(isActive) {
   return dispatch => {
     const headers = {};
     headers['clearFilter'] = {
       label: labels.LABEL_CLEAR_FILTER,
       fontIcon: 'eraser',
       onClick: clearFilter,
-      isActive: () => true
+      isActive: isActive
+    };
+    headers['refresh'] = {
+      label: labels.LABEL_REFRESH,
+      fontIcon: 'refresh',
+      onClick: () => {
+        dispatch(loadResults());
+      },
+      isActive: isActive
     };
     dispatch(headerActions.setHeaderControls(headers));
   };

@@ -10,9 +10,18 @@ class SearchResult extends React.Component {
   constructor(props) {
     super(props);
     this.thisOnSelect = this.onSelect.bind(this);
+    this.thisIsControlActive = this.isControlActive.bind(this);
   }
   componentWillMount() {
-    this.props.actions.createHeaders();
+    this.props.actions.createHeaders(this.thisIsControlActive);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.ajax.started !== nextProps.ajax.started) {
+      this.props.actions.createHeaders(this.thisIsControlActive);
+    }
+  }
+  isControlActive() {
+    return !this.props.ajax.started && this.props.searchResult.length > 0;
   }
   onSelect({ item, itemType }) {
     this.props.actions.openView(itemType, JSON.parse(item).itemID);
@@ -23,11 +32,13 @@ class SearchResult extends React.Component {
 }
 SearchResult.propTypes = {
   searchResult: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  ajax: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
+    ajax: state.ajaxStatus,
     searchResult: state.searchResult
   };
 };
